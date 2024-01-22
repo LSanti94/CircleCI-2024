@@ -1,49 +1,15 @@
 version: 2.1
+parameters:
+  nombre:
+    type: string
+    default: Luigi
 jobs:
   saluda:
-    parameters:
     docker:
       - image: cimg/base:stable
     steps:
-      - run: echo hola
-  despidete:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - run: echo pre adios
-      - run: echo adios
-      - run: echo post adios
+      - run: echo hola << pipeline.parameters.nombre >>
 workflows:
-  workflows1:
+  workflow1:
     jobs:
       - saluda
-      - despidete
-  workflows2:
-    jobs:
-      - saluda
-      - despidete:
-          requires:
-            - saluda
-  workflows3:
-    jobs:
-      - saluda
-      - approval:
-          type: approval
-          requires:
-            - saluda
-      - despidete:
-          requires:
-            - approval
-  nightly:
-    triggers:
-      - schedule:
-            cron: "30 17 * * *"
-            filters:
-              branches:
-                only:
-                  master
-    jobs:
-      - saluda
-      - despidete:
-          requires:
-            - saluda
