@@ -4,22 +4,16 @@ jobs:
     docker:
       - image: cimg/base:stable
     steps:
-      - run: hola
+      - run: echo hola
   despidete:
     docker:
       - image: cimg/base:stable
     steps:
       - run: echo pre adios
-      - run: echo adios
+      - run: echo pre adios
       - run: echo post adios
 workflows:
-  workflows1:
+  hello:
     jobs:
       - saluda
       - despidete
-  workflows2:
-    jobs:
-      - saluda
-      - despidete:
-          requires:
-            - saluda
