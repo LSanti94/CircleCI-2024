@@ -13,7 +13,13 @@ jobs:
       - run: echo adios
       - run: echo post adios
 workflows:
-  hello:
+  workflows1:
     jobs:
       - saluda
       - despidete
+  workflows2:
+    jobs:
+      - saluda
+      - despidete:
+          requires:
+            - saluda
