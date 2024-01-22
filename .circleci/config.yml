@@ -14,17 +14,17 @@ jobs:
       - run: echo adios
       - run: echo post adios
 workflows:
-  workflow1:
+  workflows1:
     jobs:
       - saluda
       - despidete
-  workflow2:
+  workflows2:
     jobs:
       - saluda
       - despidete:
           requires:
             - saluda
-  workflow3:
+  workflows3:
     jobs:
       - saluda
       - approval:
@@ -37,7 +37,7 @@ workflows:
   nightly:
     triggers:
       - schedule:
-            cron: " 10 * * * *"
+            cron: "10 * * * *"
             filters:
               branches:
                 only:
