@@ -1,6 +1,7 @@
 version: 2.1
 jobs:
   saluda:
+    parameters:
     docker:
       - image: cimg/base:stable
     steps:
@@ -36,7 +37,7 @@ workflows:
   nightly:
     triggers:
       - schedule:
-            cron: "00 16 * * *"
+            cron: "15 16 * * *"
             filters:
               branches:
                 only:
