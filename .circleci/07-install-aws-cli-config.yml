@@ -51,3 +51,23 @@ workflows:
   workflow1:
     jobs:
       - install-dependencies
+---
+version: 2.1
+commands:
+  install-aws-cli:
+    steps:
+      - run: echo instalando aws cli
+jobs:
+  install-dependencies:
+    docker:
+      - image: ubuntu:latest
+    steps:
+      - install-aws-cli
+# No admite una clave nombre pero sí admite lo que es path
+      - checkout:
+          path: micodigo/
+      - run: find
+workflows:
+  workflow1:
+    jobs:
+      - install-dependencies
