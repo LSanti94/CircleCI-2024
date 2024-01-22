@@ -3,7 +3,6 @@ commands:
   install-aws-cli:
     steps:
       - run: echo instalando aws cli
-      - checkout
       - run: ls -lsa
 jobs:
   install-dependencies:
@@ -11,6 +10,7 @@ jobs:
       - image: ubuntu:latest
     steps:
       - install-aws-cli
+      - checkout
 workflows:
   workflow1:
     jobs:
