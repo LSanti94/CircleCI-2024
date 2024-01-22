@@ -1,0 +1,25 @@
+version: 2.1
+jobs:
+  saluda:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - run: echo hola
+  despidete:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - run: echo pre adios
+      - run: echo adios
+      - run: echo post adios
+workflows:
+  workflows1:
+    jobs:
+      - saluda
+      - despidete
+  workflows2:
+    jobs:
+      - saluda
+      - despidete:
+          requires:
+            - saluda
