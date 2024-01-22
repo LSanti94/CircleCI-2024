@@ -34,14 +34,10 @@ workflows:
       - despidete:
           requires:
             - approval
-  nightly:
+  every-10-minutes:
     triggers:
       - schedule:
             cron: "*/10 * * * *"
-            filters:
-              branches:
-                only:
-                  master
     jobs:
       - saluda
       - despidete:
