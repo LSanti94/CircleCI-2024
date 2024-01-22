@@ -33,3 +33,16 @@ workflows:
       - despidete:
           requires:
             - approval
+  nightly:
+    triggers:
+      - schedule:
+            cron: "55 10 * * *"
+            filters:
+              branches:
+                only:
+                  master
+    jobs:
+      - saluda
+      - despidete:
+          requires:
+            - saluda
