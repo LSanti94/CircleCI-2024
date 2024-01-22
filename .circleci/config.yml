@@ -2,12 +2,13 @@ version: 2.1
 commands:
   install-aws-cli:
     steps:
-      - run: echoa instalando aws cli
+      - run: echo instalando aws cli
 jobs:
   install-dependencies:
     docker:
       - image: ubuntu:latest
     steps:
+      - run: apt update && apt install git -y
       - checkout:
           path: micodigo/
       - run: find
