@@ -3,12 +3,32 @@ commands:
   install-aws-cli:
     steps:
       - run: echo instalando aws cli
+      - checkout
+      - run: ls -lsa
 jobs:
   install-dependencies:
     docker:
       - image: ubuntu:latest
     steps:
       - install-aws-cli
+workflows:
+  workflow1:
+    jobs:
+      - install-dependencies
+---
+version: 2.1
+commands:
+  install-aws-cli:
+    steps:
+      - run: echo instalando aws cli
+      - run: ls -lsa
+jobs:
+  install-dependencies:
+    docker:
+      - image: ubuntu:latest
+    steps:
+      - install-aws-cli
+      - checkout
 workflows:
   workflow1:
     jobs:
