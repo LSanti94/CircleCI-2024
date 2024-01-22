@@ -8,11 +8,10 @@ jobs:
     docker:
       - image: ubuntu:latest
     steps:
-      - install-aws-cli
-# No admite una clave nombre pero sí admite lo que es path
       - checkout:
           path: micodigo/
       - run: find
+      - install-aws-cli
 workflows:
   workflow1:
     jobs:
