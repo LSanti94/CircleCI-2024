@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: cimg/base:stable
     steps:
-      - run: hola
+      - run: echo hola
   despidete:
     docker:
       - image: cimg/base:stable
