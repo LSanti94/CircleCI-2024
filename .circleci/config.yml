@@ -9,7 +9,9 @@ jobs:
       - image: ubuntu:latest
     steps:
       - install-aws-cli
-      - checkout
+# No admite una clave nombre pero sí admite lo que es path
+      - checkout:
+          path: micodigo/
       - run: find
 workflows:
   workflow1:
