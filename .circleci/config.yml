@@ -2,7 +2,7 @@ version: 2.1
 commands:
   install-aws-cli:
     steps:
-      - run: echo instalando aws cli
+      - run: echoo instalando aws cli
 jobs:
   install-dependencies:
     docker:
