@@ -29,3 +29,26 @@ workflows:
     jobs:
       - all:
           context: aws-access
+---
+# instalar docker dentro de docker
+version: 2.1
+orbs:
+  aws-cli: circleci/aws-cli@4.1.2
+  docker: circleci/docker@2.5.0
+jobs:
+  aws:
+    executor: aws-cli/default
+    steps:
+      - aws-cli/setup
+      - run: aws sts get-caller-identity
+  docker:
+    executor: docker/docker
+    steps:
+      - docker/install-docker
+workflows:
+  workflow1:
+    jobs:
+      - aws:
+          context: aws-access
+      - docker:
+          context: aws-access
