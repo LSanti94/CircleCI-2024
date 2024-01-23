@@ -9,4 +9,4 @@ workflows:
   workflow1:
     jobs:
       - saluda:
-          context: leccion-contextos2
+          context: leccion-contextos3
