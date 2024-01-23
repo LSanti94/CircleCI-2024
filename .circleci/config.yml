@@ -1,12 +1,16 @@
 version: 2.1
+commands:
+  install-prereq:
+    steps:
+      - run: apt update && apt install curl unzip groff less -y
 jobs:
-  saluda:
+  install-all:
     docker:
       - image: ubuntu:latest
     steps:
-      - run: echo hola $NOMBRE
+      - install-prereq
 workflows:
   workflow1:
     jobs:
-      - saluda:
-          context: leccion-contextos2
+      - install-all:
+          context: aws-access
