@@ -12,6 +12,7 @@ jobs:
       - image: ubuntu:latest
     steps:
       - install-prereq
+      - install-aws-cli
 workflows:
   workflow1:
     jobs:
