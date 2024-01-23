@@ -16,3 +16,4 @@ workflows:
       - docker/publish:
           context: aws-access
           image: miimage
+          deploy: false
