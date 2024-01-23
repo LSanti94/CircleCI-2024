@@ -9,7 +9,7 @@ jobs:
       - aws-cli/setup
       - run: aws sts get-caller-identity
   docker:
-    executor: dockers/dockers
+    executor: docker/docker
     steps:
       - docker/install-docker
 workflows:
@@ -17,5 +17,5 @@ workflows:
     jobs:
       - aws:
           context: aws-access
-      - dockers:
+      - docker:
           context: aws-access
