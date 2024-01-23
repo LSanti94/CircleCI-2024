@@ -13,7 +13,7 @@ jobs:
     steps:
       - docker/install-docker
       - docker/build:
-          name: miimagen
+          image: miimagen
 workflows:
   workflow1:
     jobs:
