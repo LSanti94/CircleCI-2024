@@ -1,0 +1,13 @@
+version: 2.1
+jobs:
+  saluda:
+    docker:
+      - image: ubuntu:latest
+    steps:
+      - run: echo hola $NOMBRE
+workflows:
+  workflow1:
+    jobs:
+      - saluda:
+# Viene a ser el nombre del contexto que se creo
+          context: leccion-contextos
