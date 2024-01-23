@@ -1,12 +1,14 @@
 version: 2.1
 orbs:
   aws-cli: circleci/aws-cli@4.1.2
+  docker: circleci/docker@2.5.0
 jobs:
   all:
     executor: aws-cli/default
     steps:
       - aws-cli/setup
       - run: aws sts get-caller-identity
+      - docker/install-docker
 workflows:
   workflow1:
     jobs:
