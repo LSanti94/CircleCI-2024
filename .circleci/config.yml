@@ -12,6 +12,7 @@ jobs:
     executor: docker/machine
     steps:
       - docker/install-docker
+      - checkout
       - docker/build:
           image: miimagen
 workflows:
