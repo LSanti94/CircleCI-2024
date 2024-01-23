@@ -1,19 +1,19 @@
 version: 2.1
-orbs:
-  aws-cli: circleci/aws-cli@4.1.2
-  docker: circleci/docker@2.5.0
 jobs:
-  aws:
-    executor: aws-cli/default
+  saluda:
+    docker:
+      - image: cimg/base:stable
     steps:
-      - aws-cli/setup
-      - run: aws sts get-caller-identity
+      - run: echo hola
+  despidete:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - run: echo pre adios
+      - run: echo pre adios
+      - run: echo post adios
 workflows:
-  workflow1:
+  hello:
     jobs:
-      - aws:
-          context: aws-access
-      - docker/publish:
-          context: aws-access
-          image: miimage
-          deploy: false
+      - saluda
+      - despidete
